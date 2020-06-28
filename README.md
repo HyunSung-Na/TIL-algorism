@@ -12,7 +12,7 @@ python으로 준비하였습니다
 
 # JAVA
 
-# Collection Framework
+## Collection Framework
 
 ### - Collection Framework란?
 
