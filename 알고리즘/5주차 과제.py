@@ -100,3 +100,75 @@ class Calculator:
 calc = Calculator()
 print(calc.calculate('4 6 * 2 / 2 +'))
 print(calc.calculate('2 5 + 3 * 6 - 5 *'))
+
+
+class Node:
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+
+
+class Tree:
+    def __init__(self, root):
+        self.root = root
+
+    def preorder(self):
+        def _pre_order_traversal(root):
+            if root is None:
+                pass
+            else:
+                print(root.data)
+                _pre_order_traversal(root.left)
+                _pre_order_traversal(root.right)
+        _pre_order_traversal(self.root)
+
+root = Node(5, Node(2, Node(7, Node(4), Node(1)), Node(3)), Node(9, Node(6), Node(10)))
+tree = Tree(root)
+tree.preorder()
+
+
+class HashTable:
+    def __init__(self):
+        self.table = [None] * 10
+
+    @staticmethod
+    def hash_func(key):
+        return ord(key[0]) % 10
+
+    def set(self, key, value):
+        self.table[self.hash_func(key)] = value
+
+    def get(self, key):
+        return self.table[self.hash_func(key)]
+
+
+class Node:
+    def __init__(self, key, data):
+        self.key = key
+        self.data = data
+        self.next = None
+
+
+class ChainedHashTable(HashTable):
+
+    def insert(self, key, value):
+        gen_key = hash(key)
+        hash_value = self.hash_func(gen_key)
+        if self.table[hash_value] != 0:
+            for i in range(len(self.table)):
+                if not self.table[hash_value][i]:
+                    self.table[hash_value][i].append([value])
+        else:
+            self.table[hash_value] = [[gen_key, value]]
+
+    def read(self, key):
+        gen_key = hash(key)
+        hash_value = self.hash_func(gen_key)
+        if self.table[hash_value] != 0:
+            for i in range(len(self.table[hash_value])):
+                if self.table[hash_value][i][0] == gen_key:
+                    return self.table[hash_value][i][1]
+            return None
+        else:
+            return None
