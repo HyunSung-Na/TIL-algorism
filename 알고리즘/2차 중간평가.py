@@ -24,6 +24,39 @@ N, M, V = 4, 5, 1
 edges = [[1, 2], [1, 3], [1, 4], [2, 3], [3, 4]]
 
 def solution1(N, M, V, edges):
+
+    adj = [[0 for i in range(N + 1)] for j in range(N + 1)]
+    for i in range(M):
+        a, b = edges[i]
+        adj[a][b] = 1
+        adj[b][a] = 1
+
+    def dfs(start):
+        start -= 1
+        visited = []
+        stack = edges[start]
+        while stack:
+            current_node = stack[0]
+            next_node = stack[1]
+            if current_node not in visited:
+                visited.append(current_node)
+                if adj[current_node][next_node]:
+                    stack = edges[next_node]
+                if next_node >= N:
+                    visited.append(next_node)
+                    break
+            start += 1
+            stack = edges[start]
+        return " ".join(str(i) for i in visited)
+    print(dfs(V))
+
+solution1(N, M, V, edges)
+
+
+from collections import deque
+
+def solution3(N, M, V, edges):
+
     adj = [[0 for i in range(N + 1)] for j in range(N + 1)]
 
     for i in range(M):
@@ -31,23 +64,24 @@ def solution1(N, M, V, edges):
         adj[a][b] = 1
         adj[b][a] = 1
 
-    def dfs(start):
+    def bfs(start):
+        start -= 1
+        queue = deque(edges)
         visited = []
-        stack = edges[start]
+        while queue:
+            n = queue.popleft()
+            current_node = n[0]
+            next_node = n[1]
+            if current_node not in visited:
+                visited.append(current_node)
+            if n == edges[-1]:
+                visited.append(next_node)
+                break
+        return " ".join(str(i) for i in visited)
 
-        while stack:
-            n = stack.pop()
-            if n not in visited:
-                visited.append(n)
-                if n in edges:
-                    temp = list(set(edges[n]) - set(visited))
-                    temp.sort(reverse=True)
-                    stack += temp
-            return " ".join(str(i) for i in visited)
-    print(dfs(V))
+    print(bfs(V))
 
-solution1(N, M, V, edges)
-
+solution3(N, M, V, edges)
 
 import heapq
 
