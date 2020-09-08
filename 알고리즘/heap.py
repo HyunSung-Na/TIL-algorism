@@ -60,7 +60,7 @@ class Heap:
         returned_data = self.heap_array[1]
         self.heap_array[1] = self.heap_array[-1]
         del self.heap_array[-1]
-        popped_idx= 1
+        popped_idx = 1
 
         while self.move_down(popped_idx):
             left_child_popped_idx = popped_idx *2
