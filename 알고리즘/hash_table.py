@@ -14,9 +14,9 @@ def save_data(data, value):
             if hash_table[hash_address][index][0] == index_key:
                 hash_table[hash_address][1] = value
                 return
-        hash_table[hash_address].append([index_key,value])
+        hash_table[hash_address].append([index_key, value])
     else:
-        hash_table[hash_address] = [[index_key,value]]
+        hash_table[hash_address] = [[index_key, value]]
 
 
 def read_data(data):
