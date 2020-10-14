@@ -16,6 +16,9 @@ def solution(S):
             return -1
     if S[-1] != 'a':
         answer += 2
+    else:
+        if S[-2] != 'a':
+            answer += 1
     return answer
 
 S = "dog"
