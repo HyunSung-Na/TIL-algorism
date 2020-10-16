@@ -1,0 +1,19 @@
+n, m = map(int, input().split())
+
+check = [False for x in range(n + 1)]
+result = []
+
+def combine(index, n, m):
+    if index == m:
+        print(' '.join(map(str, result)))
+    for i in range(1, n + 1):
+        if check[i]:
+            continue
+        check[i] = True
+        result.append(i)
+        combine(index + 1, n, m)
+        check[i] = False
+        result.pop()
+
+
+combine(0, n, m)
