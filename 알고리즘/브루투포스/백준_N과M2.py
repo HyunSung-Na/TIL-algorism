@@ -10,5 +10,4 @@ def combine(index, start, n, m):
         combine(index + 1, i + 1, n, m)
         result.pop()
 
-
 combine(0, 1, n, m)
