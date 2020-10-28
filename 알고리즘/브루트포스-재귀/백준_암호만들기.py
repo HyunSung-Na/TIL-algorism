@@ -1,6 +1,8 @@
 m, n = map(int, input().split())
 alpha = list(map(str, input().split()))
 alpha.sort()
+
+
 def check(password):
     ja = 0
     mo = 0
@@ -11,6 +13,7 @@ def check(password):
         else:
             ja += 1
     return ja >= 2 and mo >= 1
+
 
 def solution(m, alpha, password, index):
     if len(password) == m:
