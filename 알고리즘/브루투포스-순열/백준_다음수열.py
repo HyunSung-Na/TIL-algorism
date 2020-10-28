@@ -16,7 +16,6 @@ else:
             m = j
 
     search[k], search[m] = search[m], search[k]
-
     temp = search[k+1:]
     temp.sort()
     answer = search[:k+1] + temp
