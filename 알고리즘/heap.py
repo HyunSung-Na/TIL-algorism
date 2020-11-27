@@ -1,5 +1,5 @@
 class Heap:
-    def __init__(self,data):
+    def __init__(self, data):
         self.heap_array = list()
         self.heap_array.append(None)
         self.heap_array.append(data)
@@ -28,9 +28,10 @@ class Heap:
             parent_idx = inserted_idx //2
             self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[inserted_idx]
             inserted_idx = parent_idx
+
     def move_down(self,poped_idx):
-        left_child_popped_idx = poped_idx*2
-        right_child_popped_idx = poped_idx *2+1
+        left_child_popped_idx = poped_idx * 2
+        right_child_popped_idx = poped_idx * 2 + 1
         # case1 왼쪽 자식 노드가 없을때
         if left_child_popped_idx >= len(self.heap_array):
             return False
@@ -54,6 +55,7 @@ class Heap:
                     return False
 
     def pop(self):
+
         if len(self.heap_array) <= 1:
             return None
 

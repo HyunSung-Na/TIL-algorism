@@ -1,5 +1,6 @@
 import random
 
+
 def selectsort(data):
     for stand in range(len(data)-1):
         lowest = stand

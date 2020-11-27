@@ -1,10 +1,13 @@
 hash_table = list([0 for i in range(8)])
 
+
 def get_key(data):
     return hash(data)
 
+
 def hash_function(key):
     return key % 8
+
 
 def save_data(data, value):
     index_key = get_key(data)
@@ -31,6 +34,6 @@ def read_data(data):
         return None
 
 save_data('Dave', '0102030200')
-save_data('Andy','01033232200')
+save_data('Andy', '01033232200')
 read_data('Dave')
 
