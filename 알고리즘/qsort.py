@@ -1,5 +1,6 @@
 import random
 
+
 def quicksort(data):
     if len(data) <= 1:
         return data
@@ -10,6 +11,6 @@ def quicksort(data):
 
     return quicksort(left) + [pivot] + quicksort(right)
 
-data_list = random.sample(range(100),10)
-data_qsort= quicksort(data_list)
+data_list = random.sample(range(100), 10)
+data_qsort = quicksort(data_list)
 print(data_qsort)
