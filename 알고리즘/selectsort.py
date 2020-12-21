@@ -10,5 +10,5 @@ def selectsort(data):
         data[lowest], data[stand] = data[stand], data[lowest]
     return data
 
-data_list = random.sample(range(100),10)
+data_list = random.sample(range(100), 10)
 print(selectsort(data_list))
