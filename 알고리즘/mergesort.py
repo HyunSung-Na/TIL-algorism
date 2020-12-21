@@ -1,13 +1,13 @@
 import random
 
 
-def mergesplit(data):
+def mergesort(data):
     if len(data) <= 1:
         return data
 
     medium = int(len(data)/2)
-    left = mergesplit(data[:medium])
-    right = mergesplit(data[medium:])
+    left = mergesort(data[:medium])
+    right = mergesort(data[medium:])
     return merge(left, right)
 
 
@@ -32,5 +32,5 @@ def merge(left, right):
     return merged
 
 data_list = random.sample(range(100), 10)
-data_merge = mergesplit(data_list)
+data_merge = mergesort(data_list)
 print(data_merge)
