@@ -1,6 +1,5 @@
 n = int(input())
 array = []
-
 array.append((0, 0, 0, 0))
 
 for i in range(1, n + 1):

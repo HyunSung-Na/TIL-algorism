@@ -1,6 +1,7 @@
 import sys
 sys.setrecursionlimit(100000)
 
+
 def dfs(x, y):
     visited[x][y] = True
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
