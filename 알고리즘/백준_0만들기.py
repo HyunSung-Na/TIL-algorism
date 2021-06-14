@@ -1,5 +1,6 @@
 import copy
 
+
 def recursive(array, n):
     if len(array) == n:
         operators_list.append(copy.deepcopy(array))
