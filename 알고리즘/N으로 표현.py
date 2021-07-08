@@ -2,6 +2,8 @@ def right_num(N, number):
     while int(N) // 10 != number // 10:
         N += str(N)
     return N
+
+
 def dfs(N, number):
     stack = []
     if N == number:
@@ -9,6 +11,7 @@ def dfs(N, number):
     N = right_num(N, number)
 
     return N
+
 
 def solution(N, number):
     answer = 0
