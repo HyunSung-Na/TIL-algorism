@@ -17,11 +17,11 @@ while queue:
         array[s][s] = array[s][c] + 1
         queue.append([s, s])
 
-    if array[s + c][c] == -1 and s + c <= S:
+    if s + c <= S and array[s + c][c] == -1:
         array[s + c][c] = array[s][c] + 1
         queue.append([s + c, c])
 
-    if array[s - 1][c] == -1 and s - 1 >= 0:
+    if s - 1 >= 0 and array[s - 1][c] == -1:
         array[s - 1][c] = array[s][c] + 1
         array.append([s-1, c])
 
