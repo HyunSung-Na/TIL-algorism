@@ -10,6 +10,7 @@ for _ in range(n):
         temp.append(i)
     candy.append(temp)
 
+
 def check(candy):
     candy_len = len(candy)
     result = 1
