@@ -8,6 +8,7 @@ array = []
 for i in range(n):
     array.append(list(map(int, input().split())))
 
+
 def solution(day, total):
     global result
     if day == n:
